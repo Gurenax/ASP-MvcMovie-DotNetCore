@@ -40,5 +40,23 @@ namespace MvcMovie.Controllers
 }
 ```
 
+5. Change `Welcome()` method to
+```csharp
+// GET: /HelloWorld/Welcome/ 
+// Requires using System.Text.Encodings.Web;
+public string Welcome(string name, int numTimes = 1)
+{
+    return HtmlEncoder.Default.Encode($"Hello {name}, NumTimes is: {numTimes}");
+}
+```
+
+6. Change `Welcome()` method to
+```csharp
+public string Welcome(string name, int ID = 1)
+{
+    return HtmlEncoder.Default.Encode($"Hello {name}, ID: {ID}");
+}
+```
+
 ## Reference
 https://docs.microsoft.com/en-us/aspnet/core/tutorials/first-mvc-app-xplat/start-mvc
