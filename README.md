@@ -156,6 +156,32 @@ public IActionResult Index()
 </html>
 ```
 
+11. Update `Welcome()` method to:
+```csharp
+public IActionResult Welcome(string name, int numTimes = 1)
+{
+    ViewData["Message"] = "Hello " + name;
+    ViewData["NumTimes"] = numTimes;
+
+    return View();
+}
+```
+
+12. Create `Views/HelloWorld/Welcome.cshtml`
+```csharp
+@{
+    ViewData["Title"] = "Welcome";
+}
+
+<h2>Welcome</h2>
+
+<ul>
+    @for (int i = 0; i < (int)ViewData["NumTimes"]; i++)
+    {
+        <li>@ViewData["Message"]</li>
+    }
+</ul>
+```
 
 ## Reference
 https://docs.microsoft.com/en-us/aspnet/core/tutorials/first-mvc-app-xplat/start-mvc
