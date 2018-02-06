@@ -58,5 +58,19 @@ public string Welcome(string name, int ID = 1)
 }
 ```
 
+7. Change `Index()` method to
+```csharp
+public IActionResult Index()
+{
+    return View();
+}
+```
+
+8. Add a folder `Views/HelloWorld`
+
+9. Add a file `Index.cshtml` in `Views/HelloWorld`
+
+10. 
+
 ## Reference
 https://docs.microsoft.com/en-us/aspnet/core/tutorials/first-mvc-app-xplat/start-mvc
