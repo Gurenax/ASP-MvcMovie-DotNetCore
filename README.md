@@ -239,6 +239,34 @@ namespace MvcMovie.Models
 }
 ```
 
+16. Modify `Startup.cs` file to add two `usings`
+```csharp
+using Microsoft.EntityFrameworkCore;
+using MvcMovie.Models;
+
+namespace MvcMovie
+{
+    public class Startup
+    {
+```
+
+17. Modify `Startup.cs` file to add the database context
+```csharp
+public void ConfigureServices(IServiceCollection services)
+{
+    // Add framework services.
+    services.AddMvc();
+
+    services.AddDbContext<MvcMovieContext>(options =>
+            options.UseSqlite("Data Source=MvcMovie.db"));
+}
+```
+
+18. Open terminal and run the following commands
+```
+dotnet restore
+dotnet aspnet-codegenerator controller -name MoviesController -m Movie -dc MvcMovieContext --relativeFolderPath Controllers --useDefaultLayout --referenceScriptLibraries
+```
 
 ## Reference
 https://docs.microsoft.com/en-us/aspnet/core/tutorials/first-mvc-app-xplat/start-mvc
