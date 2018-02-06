@@ -183,5 +183,22 @@ public IActionResult Welcome(string name, int numTimes = 1)
 </ul>
 ```
 
+13. Create a Movie model `Models/Movie.cs`
+```csharp
+using System;
+
+namespace MvcMovie.Models
+{
+    public class Movie
+    {
+        public int ID { get; set; }
+        public string Title { get; set; }
+        public DateTime ReleaseDate { get; set; }
+        public string Genre { get; set; }
+        public decimal Price { get; set; }
+    }
+}
+```
+
 ## Reference
 https://docs.microsoft.com/en-us/aspnet/core/tutorials/first-mvc-app-xplat/start-mvc
