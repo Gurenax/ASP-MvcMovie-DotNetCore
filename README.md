@@ -268,5 +268,34 @@ dotnet restore
 dotnet aspnet-codegenerator controller -name MoviesController -m Movie -dc MvcMovieContext --relativeFolderPath Controllers --useDefaultLayout --referenceScriptLibraries
 ```
 
+19. Run the following commands to create the initial database schema
+```
+dotnet ef migrations add InitialCreate
+dotnet ef database update
+```
+
+20. Test the app
+
+21. Update `Movie.cs` model to format date
+```csharp
+using System;
+using System.ComponentModel.DataAnnotations;
+
+namespace MvcMovie.Models
+{
+    public class Movie
+    {
+        public int ID { get; set; }
+        public string Title { get; set; }
+
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        public DateTime ReleaseDate { get; set; }
+        
+        public string Genre { get; set; }
+        public decimal Price { get; set; }
+    }
+}
+```
+
 ## Reference
 https://docs.microsoft.com/en-us/aspnet/core/tutorials/first-mvc-app-xplat/start-mvc
